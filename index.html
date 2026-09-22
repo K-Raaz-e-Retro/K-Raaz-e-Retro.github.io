@@ -345,7 +345,49 @@
             background-position: center;
             border-right: 1px dashed rgba(212,175,55,0.4);
         }
-        #passTicket .pass-inner { padding-left: 18px; }
+        
+        /* --- THEMATIC PASS UPGRADES --- */
+        .pass-stamp {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            border: 3px solid rgba(157, 2, 8, 0.6); /* Velvet Red */
+            color: rgba(157, 2, 8, 0.6);
+            padding: 4px 12px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transform: rotate(15deg);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #passTicket .pass-inner {
+            position: relative;
+            z-index: 2; /* Keeps text above the stamp */
+            padding-left: 18px; 
+        }
+
+        #passTicket .v.form-line {
+            border-bottom: 2px dotted rgba(212, 175, 55, 0.3);
+            display: inline-block;
+            min-width: 80%;
+            padding-bottom: 4px;
+        }
+
+        .pass-barcode {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            color: rgba(212, 175, 55, 0.4);
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: -5px;
+            letter-spacing: 4px;
+            font-weight: 300;
+        }
+        
         #passTicket .pass-eyebrow {
             font-family: 'Space Mono', monospace;
             font-size: 0.68rem;
@@ -355,7 +397,8 @@
             text-align: center;
             margin-bottom: 4px;
         }
-      #passTicket .pass-title {
+        
+        #passTicket .pass-title {
             font-family: 'Limelight', cursive;
             font-size: 1.7rem;
             text-align: center;
@@ -364,6 +407,7 @@
             margin-bottom: 4px;
             letter-spacing: 0.03em;
         }
+        
         #passTicket .pass-sub {
             font-family: 'Space Mono', monospace;
             font-size: 0.65rem;
@@ -923,7 +967,9 @@
         </form>
 
         <div id="passWrap" class="mt-10 hidden">
+            <!-- UPDATED THEMATIC PASS -->
             <div id="passTicket">
+                <div class="pass-stamp">CONFIDENTIAL</div>
                 <div class="pass-inner">
                     <p class="pass-eyebrow">The Next Chapter Begins</p>
                     <h3 class="pass-title">K-Raaz E Retro</h3>
@@ -933,13 +979,14 @@
                     <div class="pass-meta">
                         <div class="field">
                             <p class="k">Roll No.</p>
-                            <p class="v" id="passRoll">&mdash;</p>
+                            <p class="v form-line" id="passRoll">&mdash;</p>
                         </div>
                         <div class="field">
                             <p class="k">Branch</p>
-                            <p class="v" id="passBranch">&mdash;</p>
+                            <p class="v form-line" id="passBranch">&mdash;</p>
                         </div>
                     </div>
+                    <div class="pass-barcode">|| | ||| || || | | ||| |</div>
                     <p class="pass-footer" id="passFooter">Issued &bull; Present at entry</p>
                 </div>
             </div>
