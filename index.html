@@ -273,7 +273,167 @@
         .animate-slow-pulse {
             animation: slow-pulse 3s ease-in-out infinite;
         }
-    </style>
+
+        /* ===== REGISTRATION FORM + PASS TICKET ===== */
+        .reg-input {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(212,175,55,0.35);
+            color: #f4ead2;
+            padding: 12px 14px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            width: 100%;
+            border-radius: 4px;
+            transition: border-color 0.25s ease, background 0.25s ease;
+        }
+        .reg-input::placeholder { color: rgba(244,234,210,0.35); }
+        .reg-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.06);
+        }
+        .reg-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 6px;
+            opacity: 0.85;
+        }
+        .reg-submit {
+            font-family: 'Limelight', cursive;
+            letter-spacing: 0.08em;
+            background: linear-gradient(135deg, var(--gold), var(--amber));
+            color: #1a0606;
+            padding: 14px 0;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        }
+        .reg-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,175,55,0.3); }
+        .reg-submit:disabled { opacity: 0.55; cursor: wait; }
+        .reg-status {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            text-align: center;
+            min-height: 1.2em;
+        }
+        .reg-status.error { color: #ff6b6b; }
+        .reg-status.ok { color: var(--amber); }
+
+        /* The pass itself */
+        #passTicket {
+            background: linear-gradient(160deg, #1a0606 0%, #2a0a0a 100%);
+            border: 1.5px solid var(--gold);
+            border-radius: 10px;
+            padding: 32px 28px 26px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.15) inset;
+        }
+        #passTicket::before {
+            /* Film-strip sprocket holes down the left edge */
+            content: '';
+            position: absolute; left: 0; top: 0; bottom: 0; width: 18px;
+            background-image: radial-gradient(circle, #0a0505 4px, transparent 4.5px);
+            background-size: 18px 22px;
+            background-position: center;
+            border-right: 1px dashed rgba(212,175,55,0.4);
+        }
+        #passTicket .pass-inner { padding-left: 18px; }
+        #passTicket .pass-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.25em;
+            color: var(--amber);
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+        #passTicket .pass-title {
+            font-family: 'Limelight', cursive;
+            font-size: 1.7rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f9d976, #d4af37 50%, #ffba08);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 4px;
+            letter-spacing: 0.03em;
+        }
+        #passTicket .pass-sub {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-align: center;
+            color: rgba(244,234,210,0.5);
+            margin-bottom: 18px;
+        }
+        #passTicket .pass-divider {
+            border-top: 1px dashed rgba(212,175,55,0.35);
+            margin: 16px 0;
+        }
+        #passTicket .pass-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 1.6rem;
+            color: #f4ead2;
+            text-align: center;
+            line-height: 1.25;
+            word-break: break-word;
+        }
+        #passTicket .pass-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        #passTicket .pass-meta .field { flex: 1; min-width: 0; }
+        #passTicket .pass-meta .k {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: 0.8;
+            margin-bottom: 3px;
+        }
+        #passTicket .pass-meta .v {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: #f4ead2;
+            word-break: break-word;
+        }
+        #passTicket .pass-footer {
+            text-align: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            color: rgba(244,234,210,0.35);
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+        .pass-download-btn {
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.08em;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 22px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+        .pass-download-btn:hover { background: var(--gold); color: #1a0606; }
+
+            </style>
 </head>
 
 <body class="antialiased selection:bg-amberLight selection:text-black font-typewriter">
@@ -605,9 +765,9 @@
                         </div>
                         <div class="flex flex-col items-center group/person w-[90px] md:w-[110px]">
                             <div class="w-full aspect-square bg-[#050505] p-1 border border-[#2a1f1f] mb-3 group-hover/person:border-amberLight transition-colors shadow-lg overflow-hidden">
-                                <img src="https://res.cloudinary.com/doygzfttu/image/upload/v1789909708/Bibhu_pjd3gr.jpg" alt="Bibhu Ranjan Swain" class="w-full h-full object-cover filter sepia-[0.6] grayscale contrast-125 group-hover/person:grayscale-0 group-hover/person:sepia-0 group-hover/person:scale-110 transition-all duration-700">
+                                <img src="https://res.cloudinary.com/doygzfttu/image/upload/v1789909708/Bibhu_pjd3gr.jpg" alt="Bibhu Rajan Swain" class="w-full h-full object-cover filter sepia-[0.6] grayscale contrast-125 group-hover/person:grayscale-0 group-hover/person:sepia-0 group-hover/person:scale-110 transition-all duration-700">
                             </div>
-                            <span class="font-typewriter text-[9px] text-gray-400 group-hover/person:text-amberLight text-center uppercase tracking-wider leading-tight">Bibhu<br>Ranjan Swain</span>
+                            <span class="font-typewriter text-[9px] text-gray-400 group-hover/person:text-amberLight text-center uppercase tracking-wider leading-tight">Bibhu<br>Rajan Swain</span>
                         </div>
                         <div class="flex flex-col items-center group/person w-[90px] md:w-[110px]">
                             <div class="w-full aspect-square bg-[#050505] p-1 border border-[#2a1f1f] mb-3 group-hover/person:border-amberLight transition-colors shadow-lg overflow-hidden">
@@ -729,6 +889,64 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration / Pass Generator Section -->
+    <section id="register" class="py-24 px-6 md:px-12 w-full max-w-2xl mx-auto relative z-10">
+        <div class="reveal-up text-center mb-12">
+            <p class="font-typewriter text-xs tracking-[0.3em] text-amberLight uppercase mb-3">Classified Entry Protocol</p>
+            <h2 class="font-cinema text-4xl md:text-5xl text-clip-gold">Request Your Pass</h2>
+            <p class="font-typewriter text-sm text-gray-400 mt-4">Fill the dossier below. Your pass is generated instantly &mdash; download it and keep it for entry.</p>
+        </div>
+
+        <form id="regForm" class="space-y-5" novalidate>
+            <div>
+                <label class="reg-label" for="regName">Full Name</label>
+                <input class="reg-input" type="text" id="regName" name="name" placeholder="e.g. Saumyajeet Choudhury" required autocomplete="name">
+            </div>
+            <div>
+                <label class="reg-label" for="regEmail">Email</label>
+                <input class="reg-input" type="email" id="regEmail" name="email" placeholder="you@kiit.ac.in" required autocomplete="email">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                    <label class="reg-label" for="regRoll">Roll Number</label>
+                    <input class="reg-input" type="text" id="regRoll" name="roll" placeholder="e.g. 23XXXXXXX" required autocomplete="off">
+                </div>
+                <div>
+                    <label class="reg-label" for="regBranch">Branch</label>
+                    <input class="reg-input" type="text" id="regBranch" name="branch" placeholder="e.g. Applied Microbiology" required autocomplete="off">
+                </div>
+            </div>
+            <button type="submit" class="reg-submit" id="regSubmitBtn">Generate My Pass</button>
+            <p id="regStatus" class="reg-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div id="passWrap" class="mt-10 hidden">
+            <div id="passTicket">
+                <div class="pass-inner">
+                    <p class="pass-eyebrow">The Next Chapter Begins</p>
+                    <h3 class="pass-title">K-Raaz E Retro</h3>
+                    <p class="pass-sub">Admit One &bull; Sane Curiosity, New Generations</p>
+                    <div class="pass-divider"></div>
+                    <p class="pass-name" id="passName">&mdash;</p>
+                    <div class="pass-meta">
+                        <div class="field">
+                            <p class="k">Roll No.</p>
+                            <p class="v" id="passRoll">&mdash;</p>
+                        </div>
+                        <div class="field">
+                            <p class="k">Branch</p>
+                            <p class="v" id="passBranch">&mdash;</p>
+                        </div>
+                    </div>
+                    <p class="pass-footer" id="passFooter">Issued &bull; Present at entry</p>
+                </div>
+            </div>
+            <div class="text-center mt-6">
+                <button type="button" class="pass-download-btn" id="downloadPassBtn">Download Pass</button>
             </div>
         </div>
     </section>
@@ -943,6 +1161,122 @@
                 });
             }
         });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        // ============================================================
+        // PASS REGISTRATION — reads/writes to a Google Sheet via Apps Script.
+        // 1. Create a Google Sheet, add a tab named "Passes".
+        // 2. Extensions -> Apps Script, paste the doPost() script provided
+        //    separately, then Deploy -> New deployment -> Web app
+        //    (Execute as: Me, Who has access: Anyone).
+        // 3. Paste the deployment URL below.
+        // ============================================================
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwKc6oTS8aWIc48go-C8NyPB1z8Cm1eLAf_Eu16pNrHkMHLYagmsNI2LO3b-cPf04dQ/exec";
+
+        (function () {
+            const form = document.getElementById('regForm');
+            const statusEl = document.getElementById('regStatus');
+            const submitBtn = document.getElementById('regSubmitBtn');
+            const passWrap = document.getElementById('passWrap');
+            const passTicket = document.getElementById('passTicket');
+            const downloadBtn = document.getElementById('downloadPassBtn');
+            if (!form) return;
+
+            function setStatus(msg, kind) {
+                statusEl.textContent = msg || '';
+                statusEl.classList.remove('error', 'ok');
+                if (kind) statusEl.classList.add(kind);
+            }
+
+            function isValidEmail(v) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+            }
+
+            function fillPass(data) {
+                document.getElementById('passName').textContent = data.name;
+                document.getElementById('passRoll').textContent = data.roll;
+                document.getElementById('passBranch').textContent = data.branch;
+                document.getElementById('passFooter').textContent =
+                    'Issued ' + new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) + ' • Present at entry';
+                passWrap.classList.remove('hidden');
+                passWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById('regName').value.trim();
+                const email = document.getElementById('regEmail').value.trim();
+                const roll = document.getElementById('regRoll').value.trim();
+                const branch = document.getElementById('regBranch').value.trim();
+
+                if (!name || !email || !roll || !branch) {
+                    setStatus('Please fill in every field.', 'error');
+                    return;
+                }
+                if (!isValidEmail(email)) {
+                    setStatus('That email address looks off — please check it.', 'error');
+                    return;
+                }
+                if (APPS_SCRIPT_URL.indexOf('PASTE_YOUR') === 0) {
+                    setStatus('Form isn\'t connected yet — the pass below is a preview only.', 'error');
+                    fillPass({ name, roll, branch });
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                setStatus('Submitting…', null);
+
+                try {
+                    // Apps Script Web Apps don't send proper CORS headers, so the
+                    // request is sent as a "simple" no-cors request. The browser
+                    // can't read the response back, but the write on the sheet
+                    // still happens — Apps Script gets and processes the request fine.
+                    await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify({ name, email, roll, branch, timestamp: new Date().toISOString() })
+                    });
+
+                    setStatus('Pass generated. Download it below.', 'ok');
+                    fillPass({ name, roll, branch });
+                    form.reset();
+                } catch (err) {
+                    console.error(err);
+                    setStatus('Something went wrong sending your details. Please try again.', 'error');
+                } finally {
+                    submitBtn.disabled = false;
+                }
+            });
+
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function () {
+                    if (typeof html2canvas === 'undefined') {
+                        setStatus('Download library failed to load — try refreshing.', 'error');
+                        return;
+                    }
+                    downloadBtn.disabled = true;
+                    downloadBtn.textContent = 'Preparing…';
+                    html2canvas(passTicket, { backgroundColor: null, scale: 3 }).then(function (canvas) {
+                        const link = document.createElement('a');
+                        const nameForFile = (document.getElementById('passName').textContent || 'pass')
+                            .trim().replace(/\s+/g, '_');
+                        link.download = 'K-Raaz-E-Retro_Pass_' + nameForFile + '.png';
+                        link.href = canvas.toDataURL('image/png');
+                        link.click();
+                        downloadBtn.disabled = false;
+                        downloadBtn.textContent = 'Download Pass';
+                    }).catch(function (err) {
+                        console.error(err);
+                        downloadBtn.disabled = false;
+                        downloadBtn.textContent = 'Download Pass';
+                        setStatus('Could not generate the image — try again.', 'error');
+                    });
+                });
+            }
+        })();
     </script>
 </body>
 </html>
