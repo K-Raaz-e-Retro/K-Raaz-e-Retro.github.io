@@ -378,14 +378,29 @@
         }
 
         .pass-barcode {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.5rem;
-            color: rgba(212, 175, 55, 0.4);
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: -5px;
-            letter-spacing: 4px;
-            font-weight: 300;
+            height: 35px;
+            width: 200px;
+            margin: 22px auto 5px;
+            /* Creates a realistic, varying-thickness barcode pattern that exports safely */
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(212,175,55,0.5) 0,
+                rgba(212,175,55,0.5) 2px,
+                transparent 2px,
+                transparent 4px,
+                rgba(212,175,55,0.5) 4px,
+                rgba(212,175,55,0.5) 8px,
+                transparent 8px,
+                transparent 10px,
+                rgba(212,175,55,0.5) 10px,
+                rgba(212,175,55,0.5) 11px,
+                transparent 11px,
+                transparent 15px,
+                rgba(212,175,55,0.5) 15px,
+                rgba(212,175,55,0.5) 18px,
+                transparent 18px,
+                transparent 21px
+            );
         }
         
         #passTicket .pass-eyebrow {
@@ -986,7 +1001,7 @@
                             <p class="v form-line" id="passBranch">&mdash;</p>
                         </div>
                     </div>
-                    <div class="pass-barcode">|| | ||| || || | | ||| |</div>
+                    <div class="pass-barcode"></div>
                     <p class="pass-footer" id="passFooter">Issued &bull; Present at entry</p>
                 </div>
             </div>
